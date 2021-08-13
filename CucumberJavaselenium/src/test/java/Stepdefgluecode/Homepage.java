@@ -33,8 +33,10 @@ public class Homepage {
 	       //_wait.Until(d => d.FindElement(By.Id("Id_Your_UIElement"));
 	       
 	       // adding four elements to wishlist
-	       _wait = new WebDriverWait(driver, 20000);
+	       _wait = new WebDriverWait(driver, 2000000);
+	       //WebDriverWait(driver, 60).until(driver.findElement(By.xpath(" //*[@id=\"cc-window\"]/div[5]/a[1]")).)
 	       driver.findElement(By.xpath(" //*[@id=\"cc-window\"]/div[5]/a[1]")).click();
+	       _wait = new WebDriverWait(driver, 200000);
 	       
 	       //Accept All cookies
 	       driver.findElement(By.xpath("//*[@id='site-content']/div/div/div/div/section[4]/div/div/div/div/div/div/div/ul/li[2]/div/div[2]/div/div/a")).click();
@@ -42,22 +44,22 @@ public class Homepage {
 	       _wait = new WebDriverWait(driver, 20000);
 	       driver.findElement(By.xpath("//*[@id='site-content']/div/div/div/div/section[4]/div/div/div/div/div/div/div/ul/li[1]/div/div[2]/div/div/a")).click();
 	       System.out.println("Product2 added");
-	        _wait = new WebDriverWait(driver, 100);
+	        _wait = new WebDriverWait(driver, 20000);
 	        
 	        //
 	       driver.findElement(By.xpath("//*[@id=\"site-content\"]/div/div/div/div/section[4]/div/div/div/div/div/div/div/ul/li[5]/div/div[2]/div/div/a")).click();
-	      // System.out.println("Product3 added");
-	       _wait = new WebDriverWait(driver, 100);
+	      System.out.println("Product3 added");
+	       _wait = new WebDriverWait(driver, 20000);
 	      driver.findElement(By.xpath("//*[@id=\"site-content\"]/div/div/div/div/section[4]/div/div/div/div/div/div/div/ul/li[3]/div/div[2]/div/div/a")).click();
-	       //System.out.println("Product4 added");
-	       _wait = new WebDriverWait(driver, 100);
+	       System.out.println("Product4 added");
+	       _wait = new WebDriverWait(driver, 20000);
 	       System.out.println("Four items added to Wishlist");
 	}
 
 	@When("user view mywhishlist")
 	public void user_view_mywhishlist() {
 	    // Viewing Wishlist
-		WebDriverWait _wait2 = new WebDriverWait(driver, 200);
+		WebDriverWait _wait2 = new WebDriverWait(driver, 20000);
 		driver.findElement(By.xpath("//*[@id=\'blog\']/div[3]/div[1]/div/div/div[3]/div[3]/a")).click();
 		System.out.println("Viewing Wishlist Table");
 	}
@@ -65,14 +67,33 @@ public class Homepage {
 
 	@Then("Find price of each wishlist item")
 	public void find_price_of_each_wishlist_item() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+		String price1= null;
+	    // Getting and displaying the price of each item in Wishlist
+		WebDriverWait _wait2 = new WebDriverWait(driver, 500000);
+	     price1 = driver.findElement(By.xpath("/html/body/div[2]/div[3]/div/div/article/div/div/div[1]/form/table/tbody/tr[1]/td[4]")).getText();
+	     System.out.println("Price for wish list Product1" +price1);
+	     price1 = driver.findElement(By.xpath("/html/body/div[2]/div[3]/div/div/article/div/div/div[1]/form/table/tbody/tr[2]/td[4]")).getText();
+	     System.out.println("Price for wish list Product2" +price1);
+	     price1 = driver.findElement(By.xpath("/html/body/div[2]/div[3]/div/div/article/div/div/div[1]/form/table/tbody/tr[3]/td[4]")).getText();
+	     System.out.println("Price for wish list Product3" +price1);
+	     price1 = driver.findElement(By.xpath("/html/body/div[2]/div[3]/div/div/article/div/div/div[1]/form/table/tbody/tr[4]/td[4]")).getText();
+	     System.out.println("Price for wish list Product4" +price1);
+	   
+	   
+	  
 	}
 
 	@When("Search lower price product in Relevance")
 	public void search_lower_price_product_in_relevance() {
 	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+		
+		_wait = new WebDriverWait(driver, 200000);
+		WebElement menu = driver.findElement(By.xpath("/html/body/div[2]/div[2]/nav/div/ul/li/a"));
+          menu.sendKeys("Clothing");
+        //Thread.sleep(4000);
+       // menu2.selectByVisibleText("Knightsbridge");
+        //Thread.sleep(4000);
+		
 	}
 
 	@When("Able to add in to cart")
