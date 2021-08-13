@@ -112,7 +112,20 @@ public class Homepage {
 		driver.findElement(By.xpath("//*[@id=\"menu-item-302\"]/a")).click();
 		Timeouts implicitlyWait1 = driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		
-		System.out.println("Clothes");
+		
+		
+		driver.findElement(By.xpath("/html/body/div[3]/div[3]/div/div/article/form/select")).click();
+		driver.findElement(By.xpath("/html/body/div[3]/div[3]/div/div/article/form/select")).sendKeys("Sort by price: low to high");
+		driver.findElement(By.xpath("/html/body/div[3]/div[3]/div/div/article/form/select")).click();
+		driver.findElement(By.xpath("/html/body/div[3]/div[3]/div/div/article/form/select")).sendKeys("Default sorting");
+		driver.findElement(By.xpath("/html/body/div[3]/div[3]/div/div/article/form/select")).click();
+		
+		
+		
+
+		
+		
+		
 		
 		
         //Thread.sleep(4000);
@@ -124,13 +137,16 @@ public class Homepage {
 	@When("Able to add in to cart")
 	public void able_to_add_in_to_cart() {
 	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+		driver.findElement(By.xpath("/html/body/div[3]/div[3]/div/div/article/ul/li[1]/a[2]")).click();
+		System.out.println("Added to Cart");
+		
 	}
 
 	@Then("Verify myCart")
 	public void verify_my_cart() {
 	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+		driver.findElement(By.xpath("/html/body/div[3]/div[3]/div/div/article/ul/li[1]/a[3]")).click();
+		System.out.println("View Cart");
 	}
 }
 
