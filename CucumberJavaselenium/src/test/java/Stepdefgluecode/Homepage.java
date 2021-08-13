@@ -62,11 +62,11 @@ public class Homepage {
 	       driver.findElement(By.xpath("//*[@id=\"site-content\"]/div/div/div/div/section[4]/div/div/div/div/div/div/div/ul/li[5]/div/div[2]/div/div/a")).click();
 	      System.out.println("Product3 added");
 	       _wait = new WebDriverWait(driver, 2000000);
-	       Timeouts implicitlyWait3 = driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+	       Timeouts implicitlyWait3 = driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	      driver.findElement(By.xpath("//*[@id=\"site-content\"]/div/div/div/div/section[4]/div/div/div/div/div/div/div/ul/li[3]/div/div[2]/div/div/a")).click();
 	       System.out.println("Product4 added");
 	       _wait = new WebDriverWait(driver, 2000000);
-	       Timeouts implicitlyWait4 = driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+	       Timeouts implicitlyWait4 = driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	       System.out.println("Four items added to Wishlist");
 	       _wait = new WebDriverWait(driver, 2000000);
 	       driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
@@ -86,7 +86,7 @@ public class Homepage {
 	public void find_price_of_each_wishlist_item() {
 		String price1= null;
 	    // Getting and displaying the price of each item in Wishlist
-		WebDriverWait _wait2 = new WebDriverWait(driver, 500000);
+		Timeouts implicitlyWait22 = driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	     price1 = driver.findElement(By.xpath("/html/body/div[2]/div[3]/div/div/article/div/div/div[1]/form/table/tbody/tr[1]/td[4]")).getText();
 	     System.out.println("Price for wish list Product1" +price1);
 	     price1 = driver.findElement(By.xpath("/html/body/div[2]/div[3]/div/div/article/div/div/div[1]/form/table/tbody/tr[2]/td[4]")).getText();
@@ -120,13 +120,7 @@ public class Homepage {
 		driver.findElement(By.xpath("/html/body/div[3]/div[3]/div/div/article/form/select")).sendKeys("Default sorting");
 		driver.findElement(By.xpath("/html/body/div[3]/div[3]/div/div/article/form/select")).click();
 		
-		
-		
-
-		
-		
-		
-		
+				
 		
         //Thread.sleep(4000);
        // menu2.selectByVisibleText("Knightsbridge");

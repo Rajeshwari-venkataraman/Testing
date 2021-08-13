@@ -6,7 +6,7 @@ Feature: Validate user able to add products into wish list , find lowest price i
   Scenario Outline: Add four products into wishlist
     Given User add four products into wishlist
      When user view mywhishlist
-    #Then Find price of each wishlist item
+    Then Find price of each wishlist item
    When Search lower price product in Relevance
   And Able to add in to cart
     Then Verify myCart
